@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/home" android:icon="@drawable/home_icon"
+        android:title="Home" />
+<item android:id="@+id/vaccine" android:icon="@drawable/vaccine_icon"
+        android:title="Vaccine" />
+<item android:id="@+id/upload" android:icon="@drawable/add_icon"
+        android:title="Upload" />
+<item android:id="@+id/adoptPet" android:icon="@drawable/dog_icon"
+        android:title="Adopt " />
+<item android:id="@+id/putForAdoption" android:icon="@drawable/adoption_icon"
+        android:title="Put Up" />
+</menu>
