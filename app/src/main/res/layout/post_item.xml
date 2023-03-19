@@ -79,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:layout_weight="8"
+                android:fontFamily="@font/poppins"
                 android:padding="3dp"
                 android:text="Hey guys happy to share that I have adopted a pet"
                 android:textSize="16sp" />

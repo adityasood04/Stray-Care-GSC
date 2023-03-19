@@ -1,4 +1,5 @@
-package com.app.straycare.Fragments
+package com.example.straycaregsc.Fragments
+
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.straycaregsc.R
 
-/**
- * A simple [Fragment] subclass.
- * Use the [VaccinationFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class VaccinationFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

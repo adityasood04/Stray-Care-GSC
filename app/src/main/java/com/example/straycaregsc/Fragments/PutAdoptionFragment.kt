@@ -1,4 +1,5 @@
-package com.app.straycare.Fragments
+package com.example.straycaregsc.Fragments
+
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
