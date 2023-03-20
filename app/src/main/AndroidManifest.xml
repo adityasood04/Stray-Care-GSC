@@ -12,6 +12,12 @@
         android:theme="@style/Theme.StrayCareGSC"
         tools:targetApi="31">
         <activity
+            android:name=".AdoptPetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PutForAdoptionActivity"
+            android:exported="false" />
+        <activity
             android:name=".PostActivity"
             android:exported="false" />
         <activity

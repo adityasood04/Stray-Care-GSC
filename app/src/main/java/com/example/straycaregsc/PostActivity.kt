@@ -12,7 +12,6 @@ class PostActivity : AppCompatActivity() {
     lateinit var  ivBackBtn:ImageView
     lateinit var tvUploadImg:TextView
     lateinit var ivUploadImg:ImageView
-    val REQUEST_CODE = 100
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)

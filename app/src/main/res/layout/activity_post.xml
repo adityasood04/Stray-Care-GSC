@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/ivBackBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
         android:layout_margin="10dp"
         android:src="@drawable/back"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,6 +94,7 @@
                     android:ellipsize="end"
                     android:textColor="@color/color_brown"
                     android:maxLines="1"
+                    android:imeOptions="actionSend"
                     tools:ignore="KeyboardInaccessibleWidget" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -136,6 +137,8 @@
                     android:textColor="@color/color_brown"
                     android:outlineAmbientShadowColor="@color/color_brown"
                     android:outlineSpotShadowColor="@color/color_brown"
+
+                    android:imeOptions="actionSend"
                     tools:ignore="KeyboardInaccessibleWidget" />
 
             </com.google.android.material.textfield.TextInputLayout>

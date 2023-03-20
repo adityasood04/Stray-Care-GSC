@@ -1,5 +1,6 @@
 package com.example.straycaregsc
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -27,11 +28,13 @@ class HomePageActivity : AppCompatActivity() {
                 R.id.home -> changeFragment(HomeFragment())
                 R.id.vaccine -> changeFragment(VaccinationFragment())
                 R.id.upload -> {
-                    val i = Intent(this@HomePageActivity, PostActivity::class.java)
-                    startActivity(i)
+                    launchPostActivity()
                 }
                 R.id.adoptPet -> changeFragment(AdoptFragment())
-                R.id.putForAdoption -> changeFragment(PutAdoptionFragment())
+                R.id.putForAdoption -> {
+                    val i = Intent(this@HomePageActivity, PutForAdoptionActivity::class.java)
+                    startActivity(i)
+                }
                 else -> {
                     changeFragment(HomeFragment())
                 }
@@ -39,10 +42,16 @@ class HomePageActivity : AppCompatActivity() {
             true
         }
 
+
         ivProfile.setOnClickListener{
             val i = Intent(this@HomePageActivity,ProfileActivity::class.java)
             startActivity(i)
         }
+    }
+
+    private fun launchPostActivity() {
+        val i = Intent(this@HomePageActivity, PostActivity::class.java)
+        startActivity(i)
     }
 
     private fun initialiseVariables() {
