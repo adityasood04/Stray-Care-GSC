@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUpActivity">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:src="@drawable/backarrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout9"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="18dp"
+        android:layout_marginTop="53dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:gravity="center_horizontal"
+            android:text="Create Account"
+            android:textColor="@color/black"
+            android:textFontWeight="1000"
+            android:textSize="36sp"
+            android:textStyle="bold"
+
+
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout10"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/usernamesignup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="12dp"
+            android:background="@drawable/round_bg"
+            android:drawableLeft="@drawable/profile_icon"
+            android:drawablePadding="12dp"
+            android:hint="Username"
+            android:padding="12dp"
+            android:textSize="17sp"
+
+            />
+
+        <EditText
+            android:id="@+id/emailsignup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="12dp"
+            android:background="@drawable/round_bg"
+            android:drawableLeft="@drawable/emailicon"
+            android:drawablePadding="15dp"
+            android:hint="Email"
+            android:padding="12dp"
+            android:textSize="17sp"
+
+            />
+
+        <EditText
+            android:id="@+id/contactsignup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="12dp"
+            android:background="@drawable/round_bg"
+            android:drawableLeft="@drawable/phoneicon"
+            android:drawablePadding="15dp"
+            android:hint="Contact Number"
+            android:padding="12dp"
+            android:textSize="17sp"
+
+            />
+
+        <EditText
+            android:id="@+id/passwordsignup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="12dp"
+            android:background="@drawable/round_bg"
+            android:drawableLeft="@drawable/lockreal"
+            android:drawablePadding="15dp"
+            android:hint="Enter your password"
+            android:padding="12dp"
+            android:textSize="17sp"
+
+            />
+
+        <EditText
+            android:id="@+id/passwordcheacksignup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="12dp"
+            android:background="@drawable/round_bg"
+            android:drawableLeft="@drawable/lockreal"
+            android:drawablePadding="15dp"
+            android:hint="Confirm password"
+            android:padding="12dp"
+            android:textSize="17sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout11"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="60dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout10"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:layout_weight="6"
+            android:background="@drawable/round_bg"
+            android:padding="10dp"
+            android:paddingRight="40dp"
+            app:srcCompat="@drawable/google" />
+
+        <TextView
+            android:id="@+id/tvSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="5"
+            android:background="@drawable/round_bg"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
+            android:paddingHorizontal="7dp"
+            android:paddingVertical="8dp"
+            android:text="Sign In"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout12"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="12dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:fontFamily="@font/poppins"
+            android:gravity="end"
+            android:paddingEnd="2dp"
+            android:text="Already have an account?"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="start"
+            android:paddingStart="2dp"
+            android:text="@string/sign_in"
+            android:textColor="@color/color_brown"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
