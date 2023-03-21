@@ -26,7 +26,7 @@
         android:fontFamily="@font/poppins"
         android:text="Welcome back!"
         android:textColor="@color/black"
-        android:textFontWeight="700"
+        android:textFontWeight="1000"
         android:textSize="32sp"
 
         android:textStyle="bold"
@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/round_bg"
         android:drawableLeft="@drawable/profile_icon"
         android:drawablePadding="12dp"
@@ -52,9 +52,12 @@
         android:paddingLeft="10dp"
 
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.337"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/edittext2"
@@ -82,7 +85,7 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:textFontWeight="45"
+        android:textFontWeight="1000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
@@ -114,7 +117,7 @@
         app:srcCompat="@drawable/google" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
@@ -138,7 +141,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Dont have an account?"
-
+        android:textFontWeight="1000"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

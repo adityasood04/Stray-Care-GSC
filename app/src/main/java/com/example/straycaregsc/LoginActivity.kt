@@ -4,9 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 
 class LoginActivity : AppCompatActivity() {
-    lateinit var btnTemp:Button
+    lateinit var tvSignUp:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -15,13 +16,13 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun setListeners() {
-        btnTemp.setOnClickListener{
+        tvSignUp.setOnClickListener{
             val i = Intent(this@LoginActivity,HomePageActivity::class.java)
             startActivity(i)
         }
     }
 
     private fun initialiseVariables() {
-        btnTemp= findViewById(R.id.btnTemp)
+        tvSignUp= findViewById(R.id.tvSignUp)
     }
 }
