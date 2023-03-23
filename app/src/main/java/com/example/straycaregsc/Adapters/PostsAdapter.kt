@@ -7,16 +7,19 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.example.straycaregsc.PostModel
 import com.example.straycaregsc.R
 
 
-class PostsAdapter(private val namesList:ArrayList<String>, val listener:Listener):RecyclerView.Adapter<PostsAdapter.ViewHolder>() {
+class PostsAdapter(private val postsArray:ArrayList<PostModel>, val listener:Listener):RecyclerView.Adapter<PostsAdapter.ViewHolder>() {
     class ViewHolder(view: View):RecyclerView.ViewHolder(view){
         var tvUserName:TextView
         var ivShare:ImageView
+        var tvPostTitle:TextView
         init {
             tvUserName = view.findViewById(R.id.tvUserName)
             ivShare = view.findViewById(R.id.ivShare)
+            tvPostTitle = view.findViewById(R.id.tvPostTitle)
         }
     }
 
@@ -26,17 +29,14 @@ class PostsAdapter(private val namesList:ArrayList<String>, val listener:Listene
     }
 
     public interface Listener{
-        fun shareClicked(name:String)
+        fun shareClicked(caption:String)
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-       holder.tvUserName.text = namesList.get(position)
-        holder.ivShare.setOnClickListener(View.OnClickListener {
-            listener.shareClicked(namesList[position])
-        })
+        holder.tvPostTitle.text = postsArray[position].caption
     }
 
     override fun getItemCount(): Int {
-        return  namesList.size
+        return  postsArray.size
       }
 
 

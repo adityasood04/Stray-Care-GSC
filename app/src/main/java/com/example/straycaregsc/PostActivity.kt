@@ -60,12 +60,12 @@ class PostActivity : AppCompatActivity() {
                 if(it.isSuccessful){
                     Toast.makeText(this@PostActivity,"Posted successfully",Toast.LENGTH_SHORT).show()
                     launchHomePageActivity()
+                    finish()
                 }
                 else{
                     Log.i("adi", "${it.exception!!.message}")
                     Log.i("adi", "${it.result.toString()}")
                     Toast.makeText(this@PostActivity,"Error while uploading the post",Toast.LENGTH_SHORT).show()
-
                 }
             }
     }
