@@ -1,5 +1,6 @@
 package com.example.straycaregsc
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
@@ -25,6 +26,14 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun setListeners() {
+        tvSignUp.setOnClickListener {
+            val i = Intent(this@SignUpActivity,HomePageActivity::class.java)
+            startActivity(i)
+        }
+        tvBackToSignIn.setOnClickListener {
+            val i = Intent(this@SignUpActivity,LoginActivity::class.java)
+            startActivity(i)
+        }
 
     }
 
