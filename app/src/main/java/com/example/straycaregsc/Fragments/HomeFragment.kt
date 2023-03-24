@@ -20,7 +20,6 @@ class HomeFragment : Fragment() {
     lateinit var rcvPostsHF :RecyclerView
     lateinit var post :PostModel
     lateinit var postsArray :ArrayList<PostModel>
-    var namesArrayTest:ArrayList<String> = arrayListOf("Aditya", "Shrestha","Vatsalya","Adarsh")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,10 +72,8 @@ class HomeFragment : Fragment() {
                         val post = it.result.toObject(PostModel::class.java)
                         postsArray.add(post!!)
                         Log.i("adi", "post fetched is ${post.caption}")
-
                     }
                 }
             }
-
     }
 }
