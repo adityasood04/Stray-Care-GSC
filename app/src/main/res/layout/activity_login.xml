@@ -75,7 +75,7 @@
             app:layout_constraintVertical_bias="0.5">
 
             <EditText
-                android:id="@+id/editTextTextPassword"
+                android:id="@+id/etEmailLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
@@ -85,7 +85,7 @@
                 android:drawablePadding="12dp"
                 android:ems="10"
                 android:hint="Enter email"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:paddingVertical="12dp"
                 android:paddingLeft="10dp"
 
@@ -100,7 +100,7 @@
                 android:layout_gravity="center_vertical">
 
                 <EditText
-                    android:id="@+id/edittext2"
+                    android:id="@+id/etPasswordLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"
@@ -207,7 +207,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/tvSignup"
+            android:id="@+id/tvSignUpLoginActivity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"

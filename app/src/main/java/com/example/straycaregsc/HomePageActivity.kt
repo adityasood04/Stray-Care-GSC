@@ -4,20 +4,28 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.example.straycaregsc.Fragments.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.gson.Gson
 
 class HomePageActivity : AppCompatActivity() {
+    var userDetails = UserModel()
 
     private lateinit var bottomNavigationView: BottomNavigationView
     lateinit var ivProfile: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_page)
+        val user = intent.getStringExtra("user")
+        userDetails = Gson().fromJson(user,UserModel::class.java)
 
+        Log.i("adi", "user fetched ${userDetails.userMID} ")
+        Log.i("adi", "user fetched ${userDetails.userName} ")
+        Log.i("adi", "user fetched ${userDetails.passWord} ")
         initialiseVariables()
         changeFragment(HomeFragment())
         setListeners()
@@ -45,6 +53,7 @@ class HomePageActivity : AppCompatActivity() {
 
         ivProfile.setOnClickListener{
             val i = Intent(this@HomePageActivity,ProfileActivity::class.java)
+            i.putExtra("userDetails",Gson().toJson(userDetails))
             startActivity(i)
         }
     }

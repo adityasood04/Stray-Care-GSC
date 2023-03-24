@@ -25,7 +25,11 @@ class HomeFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
 
+    }
 
+    private fun initialiseVariables() {
+        postsArray = ArrayList()
+        post = PostModel()
     }
 
     override fun onCreateView(
@@ -33,15 +37,9 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val viewOfLayout = inflater.inflate(R.layout.fragment_home, container, false)
+        initialiseVariables()
         rcvPostsHF =viewOfLayout.findViewById(R.id.rcvPostsHF)
         fetchPosts()
-        setPostsRCV()
-
-
-
-
-
-
 
 
         return viewOfLayout
@@ -49,9 +47,9 @@ class HomeFragment : Fragment() {
 
     }
 
-    private fun setPostsRCV() {
+    private fun setPostsRCV(postArray:ArrayList<PostModel>) {
         rcvPostsHF.layoutManager = LinearLayoutManager(parentFragment?.context)
-        rcvPostsHF.adapter = PostsAdapter(postsArray,object:PostsAdapter.Listener{
+        rcvPostsHF.adapter = PostsAdapter(postArray,object:PostsAdapter.Listener{
             override fun shareClicked(caption: String) {
                 val shareIntent = Intent()
                 shareIntent.action = Intent.ACTION_SEND
@@ -63,16 +61,27 @@ class HomeFragment : Fragment() {
     }
 
     fun fetchPosts(){
+        Log.i("adi", "post fetched is called")
 
-        FirebaseFirestore.getInstance().collection("posts").document()
+
+        FirebaseFirestore.getInstance().collection("posts").document("global posts")
             .get()
             .addOnCompleteListener{
                 if(it.isSuccessful){
+                    Log.i("adi", "post fetched is successfull")
                     if(it.result.exists()){
-                        val post = it.result.toObject(PostModel::class.java)
-                        postsArray.add(post!!)
-                        Log.i("adi", "post fetched is ${post.caption}")
+                        Log.i("adi", "post fetched result exists")
+                        postsArray = it.result.toObject(ArrayList<PostModel>()::class.java)!!
+                        setPostsRCV(postsArray)
                     }
+                    else{
+                        Log.i("adi", "no result exists")
+
+                    }
+                }
+                else{
+                    Log.i("adi", "not able to fetch posts")
+
                 }
             }
     }

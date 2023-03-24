@@ -30,7 +30,7 @@ class PostActivity : AppCompatActivity() {
     lateinit var pbPostActivity: ProgressBar
     lateinit var  postModel:PostModel
     var  isPostImgSelected = false
-    var postArrayList:ArrayList<PostModel> = ArrayList()
+    var postsArrayList = ArrayList<PostModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
@@ -40,7 +40,8 @@ class PostActivity : AppCompatActivity() {
 
 
 
-    //TODO Generate an user id while signing in   Generate post id while posting image
+    //TODO Generate an user id while signing in     --- done
+    // Generate post id while posting image
 
     private fun launchHomePageActivity() {
         val i = Intent(this@PostActivity,HomePageActivity::class.java)
@@ -49,13 +50,11 @@ class PostActivity : AppCompatActivity() {
 
     private fun savePost() {
         Log.i("adi", "save post called")
-        Log.i("adi", "caption ${postModel.caption}")
-        Log.i("adi", "description ${postModel.description}")
-        Log.i("adi", "img url is ${postModel.imageUrl}")
         postModel.id = FirebaseFirestore.getInstance().collection("posts").document().id
-
-        FirebaseFirestore.getInstance().collection("posts").document(postModel.id)
-            .set(postModel)
+        postsArrayList.add(postModel)
+        resetPostModel()
+        FirebaseFirestore.getInstance().collection("posts").document("global posts")
+            .set(postsArrayList)
             .addOnCompleteListener{
                 if(it.isSuccessful){
                     Toast.makeText(this@PostActivity,"Posted successfully",Toast.LENGTH_SHORT).show()
@@ -64,10 +63,16 @@ class PostActivity : AppCompatActivity() {
                 }
                 else{
                     Log.i("adi", "${it.exception!!.message}")
-                    Log.i("adi", "${it.result.toString()}")
                     Toast.makeText(this@PostActivity,"Error while uploading the post",Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    private fun resetPostModel() {
+        postModel.id = null
+        postModel.caption = null
+        postModel.description = null
+        postModel.imageUrl = null
     }
 
     private fun hideProgressBar() {

@@ -4,6 +4,27 @@ import java.util.ArrayList;
 
 public class UserModel {
     String userName;
+
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    String userID;
+    String userMID;
+
+    public String getUserMID() {
+        return userMID;
+    }
+
+    public void setUserMID(String userMID) {
+        this.userMID = userMID;
+    }
+
     String email;
     String passWord;
     String contactNo;
