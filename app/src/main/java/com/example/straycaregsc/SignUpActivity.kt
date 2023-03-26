@@ -37,13 +37,12 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun setListeners() {
         tvSignUp.setOnClickListener {
-
             registerUser()
-
-
         }
         tvBackToSignIn.setOnClickListener {
             finish()
+            Log.i("adi", "Starting login activity")
+
             val i = Intent(this@SignUpActivity,LoginActivity::class.java)
             startActivity(i)
 

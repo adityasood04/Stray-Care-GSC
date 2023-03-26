@@ -2,6 +2,7 @@ package com.example.straycaregsc
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.google.gson.Gson
 
 class ProfileActivity : AppCompatActivity() {
@@ -10,10 +11,11 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
          userDetails = Gson().fromJson(intent.getStringExtra("userDetails"),UserModel::class.java)
-
-
-        //Fetched user model
-        //todo show details in views
+        Log.i("adi", "userdetails : ${userDetails.userName} ")
+        Log.i("adi", "userdetails : ${userDetails.userID} ")
+        Log.i("adi", "userdetails : ${userDetails.passWord} ")
+        Log.i("adi", "userdetails : ${userDetails.contactNo} ")
+        Log.i("adi", "userdetails : ${userDetails.email} ")
 
 
 

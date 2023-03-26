@@ -30,6 +30,7 @@ class PostActivity : AppCompatActivity() {
     lateinit var pbPostActivity: ProgressBar
     lateinit var  postModel:PostModel
     var  isPostImgSelected = false
+    lateinit var postsMap:HashMap<String,PostModel>
     var postsArrayList = ArrayList<PostModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +53,6 @@ class PostActivity : AppCompatActivity() {
         Log.i("adi", "save post called")
         postModel.id = FirebaseFirestore.getInstance().collection("posts").document().id
         postsArrayList.add(postModel)
-        resetPostModel()
         FirebaseFirestore.getInstance().collection("posts").document("global posts")
             .set(postsArrayList)
             .addOnCompleteListener{
