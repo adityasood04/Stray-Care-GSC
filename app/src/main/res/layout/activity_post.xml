@@ -23,6 +23,7 @@
         android:layout_height="300dp"
         android:layout_marginTop="50dp"
         android:src="@drawable/post_dummy"
+        android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/tvUploadImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -167,7 +168,7 @@
 
 
     <ProgressBar
-        android:visibility="visible"
+        android:visibility="gone"
         android:id="@+id/pbPostActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

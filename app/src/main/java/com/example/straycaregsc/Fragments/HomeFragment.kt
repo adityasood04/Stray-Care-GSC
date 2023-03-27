@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.straycaregsc.Adapters.PostsAdapter
+import com.example.straycaregsc.GlobalPostsModel
 import com.example.straycaregsc.PostModel
 import com.example.straycaregsc.R
 import com.google.firebase.firestore.FirebaseFirestore
@@ -19,7 +20,8 @@ class HomeFragment : Fragment() {
 
     lateinit var rcvPostsHF :RecyclerView
     lateinit var post :PostModel
-    lateinit var postsArray :ArrayList<PostModel>
+    lateinit var postsMap :HashMap<String,PostModel>
+    lateinit var postArrayList :ArrayList<PostModel>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +30,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initialiseVariables() {
-        postsArray = ArrayList()
+//        postsMap = HashMap()
         post = PostModel()
     }
 
@@ -71,12 +73,18 @@ class HomeFragment : Fragment() {
                     Log.i("adi", "post fetched is successfull")
                     if(it.result.exists()){
                         Log.i("adi", "post fetched result exists")
-                        postsArray = it.result.toObject(ArrayList<PostModel>()::class.java)!!
-                        setPostsRCV(postsArray)
+
+                        try {
+                            val posts= it.result.toObject(GlobalPostsModel::class.java)!!
+
+                            setPostsRCV(posts.postsArray)
+                        }
+                        catch (e:Exception){
+                            Log.i("adi", "error:${e}")
+                        }
                     }
                     else{
                         Log.i("adi", "no result exists")
-
                     }
                 }
                 else{

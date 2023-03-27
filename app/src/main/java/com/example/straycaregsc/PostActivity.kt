@@ -28,14 +28,15 @@ class PostActivity : AppCompatActivity() {
     lateinit var etDescription:EditText
     lateinit var postPath:Uri
     lateinit var pbPostActivity: ProgressBar
-    lateinit var  postModel:PostModel
+    var  postModel = PostModel()
+    lateinit var  globalPostsModel: GlobalPostsModel
+
     var  isPostImgSelected = false
-    lateinit var postsMap:HashMap<String,PostModel>
-    var postsArrayList = ArrayList<PostModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
         initialiseVariables()
+        fetchPreviousPosts()
         setListeners()
     }
 
@@ -49,12 +50,33 @@ class PostActivity : AppCompatActivity() {
         startActivity(i)
     }
 
+    private fun fetchPreviousPosts(){
+        FirebaseFirestore.getInstance().collection("posts")
+            .document("global posts")
+            .get()
+            .addOnCompleteListener{
+                if(it.isSuccessful){
+                    if(it.result.exists()){
+                        globalPostsModel = it.result.toObject(GlobalPostsModel::class.java)!!
+                    }
+                    else{
+                        return@addOnCompleteListener
+                    }
+                }
+                else{
+                    Log.i("adi", "fetchPreviousPosts: error encountered ")
+                }
+            }
+    }
+
+
     private fun savePost() {
         Log.i("adi", "save post called")
         postModel.id = FirebaseFirestore.getInstance().collection("posts").document().id
-        postsArrayList.add(postModel)
+
+        globalPostsModel.postsArray.add(postModel)
         FirebaseFirestore.getInstance().collection("posts").document("global posts")
-            .set(postsArrayList)
+            .set(globalPostsModel)
             .addOnCompleteListener{
                 if(it.isSuccessful){
                     Toast.makeText(this@PostActivity,"Posted successfully",Toast.LENGTH_SHORT).show()
@@ -96,6 +118,7 @@ class PostActivity : AppCompatActivity() {
             tvPostBtn.setOnClickListener{
                 postModel.caption = etCaption.text.toString()
                 postModel.description = etDescription.text.toString()
+                postModel.user = intent.getStringExtra("user")!!
                 if(etCaption.text != null && etDescription.text!= null && isPostImgSelected){
                 Log.i("adi", "started saving")
                 showProgressBar()
@@ -119,6 +142,7 @@ class PostActivity : AppCompatActivity() {
         etDescription = findViewById(R.id.etDescription)
         pbPostActivity = findViewById(R.id.pbPostActivity)
         postModel = PostModel()
+        globalPostsModel = GlobalPostsModel()
     }
 
     private fun uploadImage(uri:Uri,successListener: OnSuccessListener<in Uri>){

@@ -1,23 +1,21 @@
 package com.example.straycaregsc
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.straycaregsc.Fragments.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 
 class HomePageActivity : AppCompatActivity() {
     var userDetails = UserModel()
     lateinit var uid:String
+    lateinit var user:String
     var userDetailsDownloaded = false
 
     private lateinit var bottomNavigationView: BottomNavigationView
@@ -25,16 +23,9 @@ class HomePageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_page)
-        val user = intent.getStringExtra("user")
         uid = intent.getStringExtra("user uid").toString()
-        if(user.isNullOrBlank()){
-            Log.i("adi", "received object is null")
-        }
-        else{
-            Log.i("adi", "user fetched ${userDetails.userMID} ")
-            Log.i("adi", "user fetched ${userDetails.userName} ")
-            Log.i("adi", "user fetched ${userDetails.passWord} ")
-        }
+
+
         fetchUser()
         initialiseVariables()
         changeFragment(HomeFragment())
@@ -49,6 +40,7 @@ class HomePageActivity : AppCompatActivity() {
                 if(it.isSuccessful){
                     if(it.result.exists()){
                         userDetails = it.result.toObject(UserModel::class.java)!!
+                        user = userDetails.userName
                         userDetailsDownloaded = true
                     }
                 }
@@ -91,8 +83,12 @@ class HomePageActivity : AppCompatActivity() {
     }
 
     private fun launchPostActivity() {
-        val i = Intent(this@HomePageActivity, PostActivity::class.java)
-        startActivity(i)
+        if(userDetailsDownloaded){
+            val i = Intent(this@HomePageActivity, PostActivity::class.java)
+            i.putExtra("userToPost", userDetails.userName)
+            startActivity(i)
+
+        }
     }
 
     private fun initialiseVariables() {
