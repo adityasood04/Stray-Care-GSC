@@ -2,20 +2,23 @@ package com.example.straycaregsc
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.widget.ImageView
+import android.widget.TextView
 import com.google.gson.Gson
 
 class ProfileActivity : AppCompatActivity() {
+    lateinit var  ivBackBtn: ImageView
+    lateinit var tvUploadImg: TextView
+    lateinit var ivUploadImg:ImageView
     var userDetails = UserModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
          userDetails = Gson().fromJson(intent.getStringExtra("userDetails"),UserModel::class.java)
-        Log.i("adi", "userdetails : ${userDetails.userName} ")
-        Log.i("adi", "userdetails : ${userDetails.userID} ")
-        Log.i("adi", "userdetails : ${userDetails.passWord} ")
-        Log.i("adi", "userdetails : ${userDetails.contactNo} ")
-        Log.i("adi", "userdetails : ${userDetails.email} ")
+
+
+        //Fetched user model
+        //todo show details in views
 
 
 
