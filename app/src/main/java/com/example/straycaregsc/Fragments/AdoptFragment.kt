@@ -9,9 +9,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.straycaregsc.Adapters.AdoptPetAdapter
+import com.example.straycaregsc.AdoptArrayModel
+import com.example.straycaregsc.AdoptPostsModel
 import com.example.straycaregsc.R
 
 class AdoptFragment : Fragment() {
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

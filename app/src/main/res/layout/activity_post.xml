@@ -7,7 +7,6 @@
     tools:context=".PostActivity">
 
 
-
     <ImageView
         android:id="@+id/ivBackBtn"
         android:layout_width="18dp"
@@ -17,13 +16,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="StrayCare Post"
+        android:textSize="27sp"
+        android:fontFamily="@font/poppins_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="#311607"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <ImageView
         android:id="@+id/ivUploadImage"
         android:layout_width="350dp"
         android:layout_height="300dp"
         android:layout_marginTop="50dp"
+        android:scaleType="center"
         android:src="@drawable/post_dummy"
-        android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/tvUploadImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,6 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/round_bg"
         android:fontFamily="@font/poppins"
         android:gravity="center"
@@ -54,9 +66,9 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:orientation="vertical"
+        android:layout_marginBottom="30dp"
         app:layout_constraintBottom_toTopOf="@+id/tvSubmitPost"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvUploadImage">
 
@@ -79,11 +91,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:hint="Caption"
             app:boxCornerRadiusBottomEnd="5dp"
             app:boxCornerRadiusBottomStart="5dp"
             app:boxCornerRadiusTopEnd="5dp"
             app:boxCornerRadiusTopStart="5dp"
+            android:layout_marginBottom="30dp"
             app:boxStrokeColor="@color/color_brown"
             app:hintTextColor="@color/color_brown"
             app:layout_constraintEnd_toEndOf="parent"
@@ -96,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:imeOptions="actionSend"
-                android:maxLines="3"
+                android:maxLines="2"
                 android:outlineAmbientShadowColor="@color/color_brown"
                 android:outlineSpotShadowColor="@color/color_brown"
 
@@ -104,6 +116,7 @@
                 tools:ignore="KeyboardInaccessibleWidget" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <TextView
             android:id="@+id/tvDescription"
             android:layout_width="match_parent"
@@ -122,7 +135,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:hint="Description"
             app:boxCornerRadiusBottomEnd="5dp"
             app:boxCornerRadiusBottomStart="5dp"
             app:boxCornerRadiusTopEnd="5dp"
@@ -139,7 +151,7 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:imeOptions="actionSend"
-                android:maxLines="7"
+                android:maxLines="4"
                 android:textColor="@color/color_brown"
                 tools:ignore="KeyboardInaccessibleWidget" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -168,11 +180,11 @@
 
 
     <ProgressBar
-        android:visibility="gone"
         android:id="@+id/pbPostActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminateDrawable="@drawable/progress_bg"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

@@ -1,6 +1,7 @@
 package com.example.straycaregsc
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,14 +10,17 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.straycaregsc.Fragments.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 
 class HomePageActivity : AppCompatActivity() {
     var userDetails = UserModel()
     lateinit var uid:String
-    lateinit var user:String
+    lateinit var userName:String
     var userDetailsDownloaded = false
+    var isAlreadyLoggedIn = false
 
     private lateinit var bottomNavigationView: BottomNavigationView
     lateinit var ivProfile: ImageView
@@ -25,14 +29,20 @@ class HomePageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home_page)
         uid = intent.getStringExtra("user uid").toString()
 
-
-        fetchUser()
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            fetchUser(user.uid)
+            Log.i("adi", "user uid is ${user.uid} ")
+        }
+        else{
+            fetchUser(uid)
+        }
         initialiseVariables()
         changeFragment(HomeFragment())
         setListeners()
     }
 
-    private fun fetchUser() {
+    private fun fetchUser(uid:String) {
         FirebaseFirestore.getInstance().collection("Users")
             .document(uid)
             .get()
@@ -40,7 +50,7 @@ class HomePageActivity : AppCompatActivity() {
                 if(it.isSuccessful){
                     if(it.result.exists()){
                         userDetails = it.result.toObject(UserModel::class.java)!!
-                        user = userDetails.userName
+                        userName = userDetails.userName
                         userDetailsDownloaded = true
                     }
                 }
@@ -52,7 +62,13 @@ class HomePageActivity : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.home -> changeFragment(HomeFragment())
-                R.id.vaccine -> changeFragment(VaccinationFragment())
+                R.id.vaccine -> {
+//                    changeFragment(VaccinationFragment())
+                    val gmmIntentUri = Uri.parse("geo:0,0?q=veterinary hospital")
+                    val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+                    mapIntent.setPackage("com.google.android.apps.maps")
+                    startActivity(mapIntent)
+                }
                 R.id.upload -> {
                     launchPostActivity()
                 }
@@ -70,15 +86,15 @@ class HomePageActivity : AppCompatActivity() {
 
 
         ivProfile.setOnClickListener{
-            if(userDetailsDownloaded){
+//            if(userDetailsDownloaded){
                 val i = Intent(this@HomePageActivity,ProfileActivity::class.java)
                 i.putExtra("userDetails",Gson().toJson(userDetails))
                 startActivity(i)
 
-            }
-            else{
-                Toast.makeText(this@HomePageActivity,"Fetching user details. Please wait and try again later",Toast.LENGTH_SHORT).show()
-            }
+//            }
+//            else{
+//                Toast.makeText(this@HomePageActivity,"Fetching user details. Please wait and try again later",Toast.LENGTH_SHORT).show()
+//            }
         }
     }
 

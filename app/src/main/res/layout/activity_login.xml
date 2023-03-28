@@ -49,9 +49,9 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
+                android:fontFamily="@font/poppins_bold"
                 android:text="Welcome back!"
-                android:textColor="@color/black"
+                android:textColor="#311607"
                 android:textSize="32sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
@@ -83,12 +83,10 @@
                 android:background="@drawable/round_bg"
                 android:drawableLeft="@drawable/profile_icon"
                 android:drawablePadding="12dp"
-                android:ems="10"
                 android:hint="Enter email"
                 android:inputType="textEmailAddress"
-                android:paddingVertical="12dp"
+                android:paddingVertical="15dp"
                 android:paddingLeft="10dp"
-
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -118,7 +116,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
-                    app:layout_constraintVertical_bias="0.0" />
+                   />
 
 
             </FrameLayout>
@@ -131,7 +129,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginEnd="18dp"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
                 app:layout_constraintEnd_toEndOf="parent"

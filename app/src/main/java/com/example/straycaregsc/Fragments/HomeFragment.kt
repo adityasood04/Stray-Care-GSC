@@ -20,8 +20,6 @@ class HomeFragment : Fragment() {
 
     lateinit var rcvPostsHF :RecyclerView
     lateinit var post :PostModel
-    lateinit var postsMap :HashMap<String,PostModel>
-    lateinit var postArrayList :ArrayList<PostModel>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +28,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun initialiseVariables() {
-//        postsMap = HashMap()
         post = PostModel()
     }
 

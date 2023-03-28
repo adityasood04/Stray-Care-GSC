@@ -17,13 +17,14 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/circleImageView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
         android:src="@drawable/postdummy"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 
     <TextView
@@ -33,14 +34,13 @@
         android:fontFamily="@font/poppins_bold"
         android:gravity="center"
         android:text="Your Profile"
-        android:textColor="@color/black"
+        android:textColor="#311607"
         android:textSize="27sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
         app:layout_constraintVertical_bias="0.5">
 
         <TextView
-            androis:textStyle="semibold"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
@@ -84,12 +84,10 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="407dp" />
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
-            androis:textStyle="semibold"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
@@ -103,7 +101,7 @@
             tools:layout_editor_absoluteY="447dp" />
 
         <TextView
-            androis:textStyle="semibold"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_semibold"
@@ -116,7 +114,7 @@
             tools:layout_editor_absoluteY="487dp" />
 
         <TextView
-            androis:textStyle="semibold"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_semibold"
@@ -129,7 +127,7 @@
             tools:layout_editor_absoluteY="527dp" />
 
         <TextView
-            androis:textStyle="semibold"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_semibold"
@@ -142,6 +140,7 @@
             tools:layout_editor_absoluteY="567dp" />
 
         <TextView
+            android:id="@+id/tvLogOut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/round_bg"

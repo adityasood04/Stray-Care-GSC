@@ -118,7 +118,7 @@ class PostActivity : AppCompatActivity() {
             tvPostBtn.setOnClickListener{
                 postModel.caption = etCaption.text.toString()
                 postModel.description = etDescription.text.toString()
-                postModel.user = intent.getStringExtra("user")!!
+                postModel.user = intent.getStringExtra("userToPost")!!
                 if(etCaption.text != null && etDescription.text!= null && isPostImgSelected){
                 Log.i("adi", "started saving")
                 showProgressBar()
@@ -152,7 +152,7 @@ class PostActivity : AppCompatActivity() {
         // Use userid to make the post url unique
 
 
-        val imgRef = FirebaseStorage.getInstance().reference.child("${postModel.id}/postImage.png")
+        val imgRef = FirebaseStorage.getInstance().reference.child("${postModel.user}/${postModel.caption}/postImage.png")
         imgRef.putFile(uri).addOnSuccessListener {
                 imgRef.downloadUrl
                     .addOnSuccessListener(successListener)

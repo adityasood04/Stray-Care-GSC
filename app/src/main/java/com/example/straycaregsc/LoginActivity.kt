@@ -35,6 +35,14 @@ class LoginActivity : AppCompatActivity() {
             val i = Intent(this@LoginActivity, SignUpActivity::class.java)
             startActivity(i)
         })
+        if (FirebaseAuth.getInstance().currentUser != null)
+        {
+            val i = Intent(this@LoginActivity,HomePageActivity::class.java)
+            startActivity(i)
+        }
+        else{
+
+        }
     }
 
     private fun loginUser() {
