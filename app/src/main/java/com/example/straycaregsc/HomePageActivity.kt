@@ -19,6 +19,7 @@ class HomePageActivity : AppCompatActivity() {
     var userDetails = UserModel()
     lateinit var uid:String
     lateinit var userName:String
+    lateinit var ivOurCommunity:ImageView
     var userDetailsDownloaded = false
     var isAlreadyLoggedIn = false
 
@@ -96,6 +97,9 @@ class HomePageActivity : AppCompatActivity() {
 //                Toast.makeText(this@HomePageActivity,"Fetching user details. Please wait and try again later",Toast.LENGTH_SHORT).show()
 //            }
         }
+        ivOurCommunity.setOnClickListener {
+            startActivity(Intent(this@HomePageActivity,OurCommunity::class.java))
+        }
     }
 
     private fun launchPostActivity() {
@@ -110,6 +114,7 @@ class HomePageActivity : AppCompatActivity() {
     private fun initialiseVariables() {
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
         ivProfile = findViewById(R.id.ivProfile)
+        ivOurCommunity = findViewById(R.id.ivOurCommunity)
     }
     private fun changeFragment(fragment: Fragment){
         val fragmentManager = supportFragmentManager
