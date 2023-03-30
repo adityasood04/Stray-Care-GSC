@@ -36,6 +36,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Aditya Sood"
+                    android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
                 <TextView
@@ -47,6 +48,32 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:layout_weight="13"
+                android:background="@drawable/round_bg">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/call"/>
+                <TextView
+                    android:id="@+id/tvSignIn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:paddingVertical="6dp"
+                    android:text="Contact"
+                    android:layout_marginEnd="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
 
         </LinearLayout>
@@ -56,7 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_weight="1"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
             android:src="@drawable/postdummy" />
 
 
@@ -71,7 +98,6 @@
                     android:layout_weight="8"
                     android:fontFamily="@font/poppins"
                     android:padding="3dp"
-                    android:textColor="@color/black"
                     android:layout_marginTop="5dp"
                     android:text="A cute dog available for adoption"
                     android:textSize="16sp" />
