@@ -22,14 +22,6 @@
             android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/ivUserIconAP"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_weight="1"
-                android:layout_margin="5dp"
-                android:layout_gravity="center"
-                android:src="@drawable/profile_icon" />
 
 
             <LinearLayout
@@ -37,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_gravity="center"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="25dp"
                 android:layout_weight="8">
                 <TextView
                     android:id="@+id/tvUserNameAP"
@@ -62,9 +54,9 @@
         <ImageView
             android:id="@+id/ivPostAP"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:layout_weight="1"
-            android:scaleType="centerCrop"
+            android:scaleType="center"
             android:src="@drawable/postdummy" />
 
 
@@ -79,8 +71,14 @@
                     android:layout_weight="8"
                     android:fontFamily="@font/poppins"
                     android:padding="3dp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="5dp"
                     android:text="A cute dog available for adoption"
                     android:textSize="16sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/black"/>
 
 
     </LinearLayout>

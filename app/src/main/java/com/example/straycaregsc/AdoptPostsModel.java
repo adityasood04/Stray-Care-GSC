@@ -9,6 +9,15 @@ public class AdoptPostsModel {
     String location;
     String imageUrl;
     String userID;
+    String userName;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     public AdoptPostsModel() {
     }

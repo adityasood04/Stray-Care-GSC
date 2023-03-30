@@ -76,6 +76,7 @@ class HomePageActivity : AppCompatActivity() {
                 R.id.adoptPet -> changeFragment(AdoptFragment())
                 R.id.putForAdoption -> {
                     val i = Intent(this@HomePageActivity, PutForAdoptionActivity::class.java)
+                    i.putExtra("user",userName)
                     startActivity(i)
                 }
                 else -> {
@@ -98,6 +99,7 @@ class HomePageActivity : AppCompatActivity() {
 //            }
         }
         ivOurCommunity.setOnClickListener {
+            finish()
             startActivity(Intent(this@HomePageActivity,OurCommunity::class.java))
         }
     }

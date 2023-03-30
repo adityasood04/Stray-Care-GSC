@@ -40,15 +40,15 @@
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
                     android:layout_weight="10"
-                    android:textStyle="bold"
                     android:fontFamily="@font/poppins"
+                    android:gravity="center"
                     android:text="Put up for adoption!"
                     android:textColor="@color/black"
-                    android:gravity="center"
-                    android:layout_marginEnd="10dp"
+                    android:textSize="24sp"
 
-                    android:textSize="24sp" />
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -63,6 +63,7 @@
                 android:id="@+id/tvUploadPetImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/round_bg"
                 android:fontFamily="@font/poppins"
@@ -70,7 +71,6 @@
                 android:paddingHorizontal="35dp"
                 android:paddingVertical="6dp"
                 android:text="Upload Image"
-                android:layout_gravity="center_horizontal"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -109,8 +109,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                    android:maxLines="5"
                     android:imeOptions="actionDone"
+                    android:maxLines="5"
                     android:textColor="@color/color_brown"
                     tools:ignore="KeyboardInaccessibleWidget" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -148,8 +148,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                    android:maxLines="1"
                     android:imeOptions="actionDone"
+                    android:maxLines="1"
                     android:textColor="@color/color_brown"
                     tools:ignore="KeyboardInaccessibleWidget" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -187,8 +187,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                    android:maxLines="10"
                     android:imeOptions="actionSend"
+                    android:maxLines="10"
                     android:textColor="@color/color_brown"
                     tools:ignore="KeyboardInaccessibleWidget" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -226,8 +226,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                    android:maxLines="4"
                     android:imeOptions="actionSend"
+                    android:maxLines="4"
                     android:textColor="@color/color_brown"
                     tools:ignore="KeyboardInaccessibleWidget" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -266,8 +266,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                    android:maxLines="1"
                     android:imeOptions="actionSend"
+                    android:maxLines="1"
                     android:textColor="@color/color_brown"
                     tools:ignore="KeyboardInaccessibleWidget" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -277,16 +277,16 @@
                 android:id="@+id/tvSubmitPostOfAdoption"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="10dp"
                 android:background="@drawable/round_bg"
                 android:fontFamily="@font/poppins"
                 android:paddingHorizontal="35dp"
                 android:paddingVertical="6dp"
-                android:layout_marginVertical="10dp"
                 android:text="Post"
-                android:layout_gravity="center_horizontal"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -298,6 +298,19 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/pbPFAA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:indeterminateDrawable="@drawable/progress_bg"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

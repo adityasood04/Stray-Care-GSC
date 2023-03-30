@@ -22,19 +22,14 @@
             android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/ivUserIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/profile_icon"
-                />
+
 
             <TextView
                 android:id="@+id/tvUserName"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="10"
+                android:layout_marginStart="20dp"
                 android:gravity="center_vertical"
                 android:textSize="15sp"
                 android:textStyle="bold"
