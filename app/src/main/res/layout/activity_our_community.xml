@@ -17,26 +17,31 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/ivBackBtnOC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/back" />
+            android:layout_marginVertical="5dp"
+            android:layout_marginStart="5dp"
+            app:srcCompat="@drawable/backarrow" />
 
         <TextView
             android:id="@+id/textView15"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="15"
             android:gravity="center"
             android:text="About"
+            android:layout_marginEnd="14dp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/heading_color"
             android:textSize="24sp" />
     </LinearLayout>
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,8 +51,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_gravity="center"
             android:gravity="center"
+            android:layout_marginTop="10dp"
             android:orientation="vertical">
 
 
@@ -55,14 +60,16 @@
                 android:id="@+id/imageView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/welcome" />
+                android:src="@drawable/first" />
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:fontFamily="@font/poppins"
                 android:text="“Straycare” is designed to create a stray dog - friendly community, in a feasible, intuitive and effective manner."
+                android:paddingVertical="2dp"
                 android:textSize="18sp" />
 
             <TextView
@@ -70,45 +77,60 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textStyle="italic"
+                android:paddingVertical="2dp"
+                android:fontFamily="@font/poppins"
                 android:text="Dog lovers can find their abode over here!" />
 
             <ImageView
                 android:id="@+id/imageView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:paddingVertical="2dp"
+                android:src="@drawable/second" />
 
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:paddingVertical="2dp"
+                android:textStyle="italic"
                 android:text="Woof, woof ! Did you ask for accessibility?" />
 
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
                 android:gravity="center"
+                android:paddingVertical="2dp"
                 android:text="Our app is carefully curated to be simple, equitable and user-friendly, making it easy for anybody to embrace a pup closer and get started in here!" />
 
             <ImageView
                 android:id="@+id/imageView7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:paddingVertical="2dp"
+                android:src="@drawable/third"/>
 
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="match_parent"
+                android:fontFamily="@font/poppins"
                 android:layout_height="wrap_content"
+                android:paddingVertical="2dp"
                 android:gravity="center" />
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
                 android:gravity="center"
+                android:textStyle="italic|bold"
+                android:paddingVertical="2dp"
                 android:text="Open your doors, open your heart!" />
 
             <TextView
@@ -116,6 +138,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:paddingVertical="2dp"
                 android:text="Swift browsing can bring forth meticulous information to you within snaps.
 “Adopt a Dog” featured posts includes snapshots, briefs, descriptions, particulars about the dogs to make your
 decision-making effortless." />
@@ -125,6 +149,7 @@ decision-making effortless." />
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:fontFamily="@font/poppins"
                 android:text="Necessary care and attention could be provided to them and world records of Rabies could be efficiently minimized by Vaccinating a Stray Dog by using our maps.
 " />
 
@@ -133,14 +158,27 @@ decision-making effortless." />
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:paddingVertical="2dp"
                 android:text="We even provide a paw-some feature to network with other dog lovers just like you!" />
 
             <TextView
                 android:id="@+id/textView19"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
                 android:gravity="center"
+                android:paddingVertical="2dp"
+                android:textStyle="italic|bold"
                 android:text="Afterall, life is better with a wagging tail by your side :)" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="40dp"
+
+                android:src="@drawable/fourth"/>
+
         </LinearLayout>
 
 

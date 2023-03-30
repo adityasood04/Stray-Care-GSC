@@ -20,6 +20,7 @@ class ProfileActivity : AppCompatActivity() {
     lateinit var tvLogOut: TextView
     lateinit var ivUploadImg:ImageView
     lateinit var ivBackFromInfo:ImageView
+    lateinit var ivBackBtnPA:ImageView
     lateinit var llInfo:LinearLayout
     lateinit var tvUserName:TextView
     lateinit var tvEmail:TextView
@@ -59,6 +60,7 @@ class ProfileActivity : AppCompatActivity() {
         tvPersonalInfo= findViewById(R.id.tvPersonalInfo)
         ivBackFromInfo= findViewById(R.id.ivBackFromInfo)
         tvEmail= findViewById(R.id.tvEmailPA)
+        ivBackBtnPA= findViewById(R.id.ivBackBtnPA)
 
     }
 
@@ -76,8 +78,16 @@ class ProfileActivity : AppCompatActivity() {
             clMain.visibility = View.VISIBLE
             llInfo.visibility = View.GONE
         }
+        ivBackBtnPA.setOnClickListener{
+            onBackPressed()
+        }
 
 
+    }
+
+    override fun onBackPressed() {
+        finish()
+        startActivity(Intent(this@ProfileActivity,HomePageActivity::class.java))
     }
 
 

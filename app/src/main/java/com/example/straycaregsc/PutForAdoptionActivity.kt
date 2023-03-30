@@ -132,7 +132,7 @@ class PutForAdoptionActivity : AppCompatActivity() {
 
     private fun setListeners() {
         backBtn.setOnClickListener{
-            finish()
+            onBackPressed()
         }
         tvUploadPetImage.setOnClickListener{
             val intent = Intent(Intent.ACTION_PICK)
@@ -180,5 +180,9 @@ class PutForAdoptionActivity : AppCompatActivity() {
     }
     private fun hideProgressBar(){
         pbPFAA.visibility = View.GONE
+    }
+    override fun onBackPressed() {
+        finish()
+        startActivity(Intent(this@PutForAdoptionActivity,HomePageActivity::class.java))
     }
 }

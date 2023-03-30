@@ -45,7 +45,7 @@
                     android:fontFamily="@font/poppins"
                     android:gravity="center"
                     android:text="Put up for adoption!"
-                    android:textColor="@color/black"
+                    android:textColor="@color/heading_color"
                     android:textSize="24sp"
 
                     android:textStyle="bold" />

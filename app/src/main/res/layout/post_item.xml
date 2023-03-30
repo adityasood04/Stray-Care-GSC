@@ -54,17 +54,18 @@
 
             <ImageView
                 android:id="@+id/ivLike"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
                 android:layout_margin="6dp"
                 android:layout_weight="1"
+                android:padding="3dp"
                 android:src="@drawable/baseline_thumb_up_24" />
 
             <ImageView
                 android:id="@+id/ivShare"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:padding="5dp"
                 android:layout_weight="1"

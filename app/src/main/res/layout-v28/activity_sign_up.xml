@@ -35,7 +35,7 @@
             android:fontFamily="@font/poppins"
             android:gravity="center_horizontal"
             android:text="Create Account"
-            android:textColor="@color/black"
+            android:textColor="@color/heading_color"
             android:textFontWeight="1000"
             android:textSize="36sp"
             android:textStyle="bold"

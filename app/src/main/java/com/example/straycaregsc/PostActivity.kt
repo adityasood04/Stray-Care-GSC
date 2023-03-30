@@ -106,7 +106,7 @@ class PostActivity : AppCompatActivity() {
 
     private fun setListeners() {
         ivBackBtn.setOnClickListener{
-            finish()
+            onBackPressed()
         }
         tvUploadImg.setOnClickListener{
             val intent = Intent(Intent.ACTION_PICK)
@@ -169,6 +169,11 @@ class PostActivity : AppCompatActivity() {
             Picasso.get().load(postPath).into(ivUploadImg)
             isPostImgSelected = true
         }
+    }
+
+    override fun onBackPressed() {
+        finish()
+        startActivity(Intent(this@PostActivity,HomePageActivity::class.java))
     }
 
 }

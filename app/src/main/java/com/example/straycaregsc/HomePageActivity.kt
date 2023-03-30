@@ -1,5 +1,6 @@
 package com.example.straycaregsc
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -69,12 +70,15 @@ class HomePageActivity : AppCompatActivity() {
                     val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
                     mapIntent.setPackage("com.google.android.apps.maps")
                     startActivity(mapIntent)
+
                 }
                 R.id.upload -> {
+                    finish()
                     launchPostActivity()
                 }
                 R.id.adoptPet -> changeFragment(AdoptFragment())
                 R.id.putForAdoption -> {
+                    finish()
                     val i = Intent(this@HomePageActivity, PutForAdoptionActivity::class.java)
                     i.putExtra("user",userName)
                     startActivity(i)
@@ -99,7 +103,6 @@ class HomePageActivity : AppCompatActivity() {
 //            }
         }
         ivOurCommunity.setOnClickListener {
-            finish()
             startActivity(Intent(this@HomePageActivity,OurCommunity::class.java))
         }
     }

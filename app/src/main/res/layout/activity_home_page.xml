@@ -18,11 +18,11 @@
 
         <ImageView
             android:id="@+id/ivOurCommunity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:padding="10dp"
-            android:src="@drawable/our_community_icon" />
+            android:src="@drawable/community" />
 
         <View
             android:layout_width="0dp"
@@ -31,11 +31,12 @@
 
         <ImageView
             android:id="@+id/ivProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:padding="10dp"
-            android:src="@drawable/profile_icon" />
+            android:padding="9dp"
+            android:layout_marginTop="7dp"
+            android:src="@drawable/user" />
 
 
     </LinearLayout>
