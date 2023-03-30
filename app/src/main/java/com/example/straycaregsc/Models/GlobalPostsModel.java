@@ -1,10 +1,10 @@
-package com.example.straycaregsc;
+package com.example.straycaregsc.Models;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class GlobalPostsModel {
     ArrayList<PostModel> postsArray = new ArrayList<>();
+
 
 
     public GlobalPostsModel() {

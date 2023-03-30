@@ -1,25 +1,24 @@
 package com.example.straycaregsc
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.straycaregsc.Fragments.*
+import com.example.straycaregsc.Models.UserModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 
 class HomePageActivity : AppCompatActivity() {
     var userDetails = UserModel()
     lateinit var uid:String
     lateinit var userName:String
+    lateinit var userMID:String
     lateinit var ivOurCommunity:ImageView
     var userDetailsDownloaded = false
     var isAlreadyLoggedIn = false
@@ -53,6 +52,7 @@ class HomePageActivity : AppCompatActivity() {
                     if(it.result.exists()){
                         userDetails = it.result.toObject(UserModel::class.java)!!
                         userName = userDetails.userName
+                        userMID = userDetails.userMID
                         userDetailsDownloaded = true
                     }
                 }
@@ -65,11 +65,11 @@ class HomePageActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.home -> changeFragment(HomeFragment())
                 R.id.vaccine -> {
-//                    changeFragment(VaccinationFragment())
                     val gmmIntentUri = Uri.parse("geo:0,0?q=veterinary hospital")
                     val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
                     mapIntent.setPackage("com.google.android.apps.maps")
                     startActivity(mapIntent)
+
 
                 }
                 R.id.upload -> {
@@ -79,9 +79,13 @@ class HomePageActivity : AppCompatActivity() {
                 R.id.adoptPet -> changeFragment(AdoptFragment())
                 R.id.putForAdoption -> {
                     finish()
-                    val i = Intent(this@HomePageActivity, PutForAdoptionActivity::class.java)
-                    i.putExtra("user",userName)
-                    startActivity(i)
+                    if(userDetailsDownloaded){
+                        val i = Intent(this@HomePageActivity, PutForAdoptionActivity::class.java)
+                        i.putExtra("user",userName)
+                        i.putExtra("uid",userMID)
+                        startActivity(i)
+
+                    }
                 }
                 else -> {
                     changeFragment(HomeFragment())

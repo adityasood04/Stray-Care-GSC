@@ -1,5 +1,6 @@
 package com.example.straycaregsc.Adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,12 +8,13 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.straycaregsc.AdoptPostsModel
+import com.example.straycaregsc.Models.AdoptArrayModel
+import com.example.straycaregsc.Models.AdoptPostsModel
 import com.example.straycaregsc.R
 import com.squareup.picasso.Picasso
 import java.util.ArrayList
 
-class AdoptPetAdapter(private val postModelArray: ArrayList<AdoptPostsModel>):RecyclerView.Adapter<AdoptPetAdapter.ViewHolder>() {
+class AdoptPetAdapter(private val postModelArray: ArrayList<AdoptPostsModel>, val listener:AdoptPetAdapter.Listener):RecyclerView.Adapter<AdoptPetAdapter.ViewHolder>() {
     class ViewHolder(view: View):RecyclerView.ViewHolder(view){
         val tvPostTitleAP:TextView
         val tvUserNameAP:TextView
@@ -34,6 +36,9 @@ class AdoptPetAdapter(private val postModelArray: ArrayList<AdoptPostsModel>):Re
         return ViewHolder(view)
     }
 
+    public interface Listener{
+        fun onPostClicked(userID:String)
+    }
     override fun getItemCount(): Int {
         return postModelArray.size
     }
@@ -45,5 +50,9 @@ class AdoptPetAdapter(private val postModelArray: ArrayList<AdoptPostsModel>):Re
         Picasso.get()
             .load(postModelArray[position].imageUrl)
             .into(holder.ivPostAP)
+        holder.llPostItemAP.setOnClickListener{
+            listener.onPostClicked(postModelArray[position].userID)
+            Log.i("adi", "onBindViewHolder:${postModelArray[position].userID}")
+        }
     }
 }

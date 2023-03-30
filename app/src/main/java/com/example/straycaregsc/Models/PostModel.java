@@ -1,4 +1,4 @@
-package com.example.straycaregsc;
+package com.example.straycaregsc.Models;
 
 import com.google.firebase.firestore.auth.User;
 

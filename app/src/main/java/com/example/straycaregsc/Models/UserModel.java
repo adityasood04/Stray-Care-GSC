@@ -1,4 +1,4 @@
-package com.example.straycaregsc;
+package com.example.straycaregsc.Models;
 
 import java.util.ArrayList;
 

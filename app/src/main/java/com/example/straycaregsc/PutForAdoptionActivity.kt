@@ -12,12 +12,12 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import com.example.straycaregsc.Models.AdoptArrayModel
+import com.example.straycaregsc.Models.AdoptPostsModel
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
-import kotlin.system.measureTimeMillis
 
 class PutForAdoptionActivity : AppCompatActivity() {
     private lateinit var backBtn:ImageView
@@ -32,6 +32,7 @@ class PutForAdoptionActivity : AppCompatActivity() {
     lateinit var pbPFAA:ProgressBar
     var postsFetched = false
     private lateinit var userName:String
+    private lateinit var uid:String
     lateinit var adoptPostUrl:Uri
     var isImageSelected = false
 
@@ -44,7 +45,9 @@ class PutForAdoptionActivity : AppCompatActivity() {
         setContentView(R.layout.activity_put_for_adoption)
         initialiseVariables()
        userName = intent.getStringExtra("user")!!
+       uid = intent.getStringExtra("uid")!!
         adoptPostsModel.userName = userName
+        adoptPostsModel.userID = uid
         fetchPreviousPosts()
         setListeners()
     }

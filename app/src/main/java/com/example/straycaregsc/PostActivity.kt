@@ -2,7 +2,6 @@ package com.example.straycaregsc
 
 import android.app.Activity
 import android.content.Intent
-import android.media.Image
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,7 +12,8 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
-import androidx.lifecycle.VIEW_MODEL_STORE_OWNER_KEY
+import com.example.straycaregsc.Models.GlobalPostsModel
+import com.example.straycaregsc.Models.PostModel
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage

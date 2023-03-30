@@ -9,9 +9,9 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.straycaregsc.Models.UserModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
 
 class ProfileActivity : AppCompatActivity() {
@@ -33,7 +33,8 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
         initialiseVariables()
-        userDetails = Gson().fromJson(intent.getStringExtra("userDetails"),UserModel::class.java)
+        userDetails = Gson().fromJson(intent.getStringExtra("userDetails"),
+            UserModel::class.java)
 
         currentUser = FirebaseAuth.getInstance().currentUser!!
         userDetails.email = currentUser.email

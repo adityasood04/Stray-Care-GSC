@@ -11,15 +11,15 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.straycaregsc.Adapters.PostsAdapter
-import com.example.straycaregsc.GlobalPostsModel
-import com.example.straycaregsc.PostModel
+import com.example.straycaregsc.Models.GlobalPostsModel
+import com.example.straycaregsc.Models.PostModel
 import com.example.straycaregsc.R
 import com.google.firebase.firestore.FirebaseFirestore
 
 class HomeFragment : Fragment() {
 
     lateinit var rcvPostsHF :RecyclerView
-    lateinit var post :PostModel
+    lateinit var post : PostModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +53,7 @@ class HomeFragment : Fragment() {
                 val shareIntent = Intent()
                 shareIntent.action = Intent.ACTION_SEND
                 shareIntent.type="text/plain"
-                shareIntent.putExtra(Intent.EXTRA_TEXT, "Sharing post from $caption in StrayCare App." )
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Please checkout this post on our app: ${caption}" )
                 startActivity(Intent.createChooser(shareIntent,"Share via"))
             }
         })
