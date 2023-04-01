@@ -11,7 +11,18 @@ public class PostModel {
     String caption;
     String description;
 
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    int likes;
+
     public String getUser() {
+
         return user;
     }
 

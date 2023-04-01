@@ -21,6 +21,7 @@ class AdoptFragment : Fragment() {
     lateinit var adoptArrayModel: AdoptArrayModel
     lateinit var rcvAdoptPet: RecyclerView
     lateinit var llContactUser: LinearLayout
+    lateinit var llDetails: LinearLayout
     lateinit var tvOwnerMobile: TextView
     lateinit var tvOwnerName: TextView
     lateinit var tvOwnerEmail: TextView
@@ -49,6 +50,7 @@ class AdoptFragment : Fragment() {
         tvOwnerName = viewOfAdopt.findViewById(R.id.tvOwnerName)
         tvOwnerMobile = viewOfAdopt.findViewById(R.id.tvOwnerMobile)
         pbAdoptFragment = viewOfAdopt.findViewById(R.id.pbAdoptFragment)
+
         ivBackAF = viewOfAdopt.findViewById(R.id.ivBackAF)
         initialiseVariables()
         fetchPosts()
@@ -92,7 +94,13 @@ class AdoptFragment : Fragment() {
     private fun setPostsInRCV(adoptPostsArray: ArrayList<AdoptPostsModel>?) {
         rcvAdoptPet.layoutManager = LinearLayoutManager(parentFragment?.context)
         rcvAdoptPet.adapter = AdoptPetAdapter(adoptPostsArray!!, object : AdoptPetAdapter.Listener {
-            override fun onPostClicked(userID: String) {
+
+
+            override fun onPostClicked(position: Int) {
+                Log.i("adi", "onPostClicked: showing details of post $position ")
+            }
+
+            override fun onContactUserClicked(userID: String) {
                 var uid = userID.replace(" ","")
                 Log.i("adi", "clicked $uid")
 
@@ -169,6 +177,12 @@ class AdoptFragment : Fragment() {
     private fun hideProgressBar(){
         pbAdoptFragment.visibility = View.GONE
     }
+//    private fun showDetails(){
+//        llDetails.visibility = View.VISIBLE
+//    }
+//    private fun hideDetails(){
+//        llDetails.visibility = View.GONE
+//    }
 
 
 
