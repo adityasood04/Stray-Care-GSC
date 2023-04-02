@@ -6,20 +6,23 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.straycaregsc.Fragments.*
 import com.example.straycaregsc.Models.UserModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
 
 class HomePageActivity : AppCompatActivity() {
     var userDetails = UserModel()
-    lateinit var uid:String
-    lateinit var userName:String
-    lateinit var userMID:String
-    lateinit var ivOurCommunity:ImageView
+    lateinit var uid: String
+    lateinit var userName: String
+    lateinit var userMID: String
+    lateinit var ivOurCommunity: ImageView
+    lateinit var fabPost: FloatingActionButton
     var userDetailsDownloaded = false
     var isAlreadyLoggedIn = false
 
@@ -34,8 +37,7 @@ class HomePageActivity : AppCompatActivity() {
         if (user != null) {
             fetchUser(user.uid)
             Log.i("adi", "user uid is ${user.uid} ")
-        }
-        else{
+        } else {
             fetchUser(uid)
         }
         initialiseVariables()
@@ -43,13 +45,13 @@ class HomePageActivity : AppCompatActivity() {
         setListeners()
     }
 
-    private fun fetchUser(uid:String) {
+    private fun fetchUser(uid: String) {
         FirebaseFirestore.getInstance().collection("Users")
             .document(uid)
             .get()
-            .addOnCompleteListener{
-                if(it.isSuccessful){
-                    if(it.result.exists()){
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    if (it.result.exists()) {
                         userDetails = it.result.toObject(UserModel::class.java)!!
                         userName = userDetails.userName
                         userMID = userDetails.userMID
@@ -61,10 +63,12 @@ class HomePageActivity : AppCompatActivity() {
     }
 
     private fun setListeners() {
+        bottomNavigationView.menu.findItem(R.id.placeholder).isEnabled = false
         bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.home -> changeFragment(HomeFragment())
                 R.id.vaccine -> {
+                    changeFragment(HomeFragment())
                     val gmmIntentUri = Uri.parse("geo:0,0?q=veterinary hospital")
                     val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
                     mapIntent.setPackage("com.google.android.apps.maps")
@@ -72,10 +76,12 @@ class HomePageActivity : AppCompatActivity() {
 
 
                 }
-                R.id.upload -> {
-                    finish()
-                    launchPostActivity()
-                }
+//                R.id.upload -> {
+//                    finish()
+//                    launchPostActivity()
+//                }
+
+
                 R.id.adoptPet -> changeFragment(AdoptFragment())
                 R.id.putForAdoption -> {
                     finish()
@@ -95,40 +101,52 @@ class HomePageActivity : AppCompatActivity() {
         }
 
 
-        ivProfile.setOnClickListener{
-//            if(userDetailsDownloaded){
-                val i = Intent(this@HomePageActivity,ProfileActivity::class.java)
-                i.putExtra("userDetails",Gson().toJson(userDetails))
+        ivProfile.setOnClickListener {
+            if (userDetailsDownloaded) {
+                val i = Intent(this@HomePageActivity, ProfileActivity::class.java)
+                i.putExtra("userDetails", Gson().toJson(userDetails))
                 startActivity(i)
 
-//            }
-//            else{
-//                Toast.makeText(this@HomePageActivity,"Fetching user details. Please wait and try again later",Toast.LENGTH_SHORT).show()
-//            }
+            } else {
+                Toast.makeText(
+                    this@HomePageActivity,
+                    "Fetching user details. Please wait and try again later",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
         ivOurCommunity.setOnClickListener {
-            startActivity(Intent(this@HomePageActivity,OurCommunity::class.java))
+            startActivity(Intent(this@HomePageActivity, OurCommunity::class.java))
+        }
+        fabPost.setOnClickListener{
+            finish()
+            launchPostActivity()
         }
     }
 
     private fun launchPostActivity() {
-        if(userDetailsDownloaded){
+        if (userDetailsDownloaded) {
             val i = Intent(this@HomePageActivity, PostActivity::class.java)
             i.putExtra("userToPost", userDetails.userName)
+            i.putExtra("uid",userDetails.userMID)
+
             startActivity(i)
 
         }
     }
 
-    private fun initialiseVariables() {
-        bottomNavigationView = findViewById(R.id.bottomNavigationView)
-        ivProfile = findViewById(R.id.ivProfile)
-        ivOurCommunity = findViewById(R.id.ivOurCommunity)
-    }
-    private fun changeFragment(fragment: Fragment){
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameLayoutAM,fragment)
-        fragmentTransaction.commit()
-    }
+
+
+private fun initialiseVariables() {
+    bottomNavigationView = findViewById(R.id.bottomNavigationView)
+    ivProfile = findViewById(R.id.ivProfile)
+    ivOurCommunity = findViewById(R.id.ivOurCommunity)
+    fabPost = findViewById(R.id.fabPost)
+}
+private fun changeFragment(fragment: Fragment){
+    val fragmentManager = supportFragmentManager
+    val fragmentTransaction = fragmentManager.beginTransaction()
+    fragmentTransaction.replace(R.id.frameLayoutAM,fragment)
+    fragmentTransaction.commit()
+}
 }

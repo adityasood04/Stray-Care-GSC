@@ -9,7 +9,8 @@
     <color name="white">#FFFFFFFF</color>
 
     <!--    Other colors-->
-    <color name="color_brown">#CC9A83</color>
+    <color name="color_brown">
+        #CC9A83</color>
     <color name="heading_color">#311607</color>
 
 

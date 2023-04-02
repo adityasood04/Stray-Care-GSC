@@ -5,8 +5,10 @@
         android:title="Home" />
 <item android:id="@+id/vaccine" android:icon="@drawable/vaccine"
         android:title="Vaccine" />
-<item android:id="@+id/upload" android:icon="@drawable/post"
-        android:title="Upload" />
+<!--<item android:id="@+id/upload" android:icon="@drawable/post"-->
+<!--        android:title="Upload" />-->
+    <item android:id="@+id/placeholder"
+        android:title="" />
 <item android:id="@+id/adoptPet" android:icon="@drawable/adopt"
         android:title="Adopt " />
 <item android:id="@+id/putForAdoption" android:icon="@drawable/adoptpet"

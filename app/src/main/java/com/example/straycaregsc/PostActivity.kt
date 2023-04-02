@@ -14,6 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.straycaregsc.Models.GlobalPostsModel
 import com.example.straycaregsc.Models.PostModel
+import com.example.straycaregsc.Models.UserModel
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
@@ -25,10 +26,12 @@ class PostActivity : AppCompatActivity() {
     lateinit var ivUploadImg:ImageView
     lateinit var tvPostBtn:TextView
     lateinit var etCaption:EditText
-    lateinit var etDescription:EditText
+    private lateinit var etDescription:EditText
     lateinit var postPath:Uri
-    lateinit var pbPostActivity: ProgressBar
-    var  postModel = PostModel()
+    private lateinit var pbPostActivity: ProgressBar
+    lateinit var uid: String
+    private var  postModel = PostModel()
+    var  user = UserModel()
     lateinit var  globalPostsModel: GlobalPostsModel
 
     var  isPostImgSelected = false
@@ -36,14 +39,36 @@ class PostActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
         initialiseVariables()
+        if(intent.getStringExtra("uid")!=null){
+            uid = intent.getStringExtra("uid").toString()
+            fetchUser(uid)
+        }
         fetchPreviousPosts()
         setListeners()
     }
 
+    private fun fetchUser(uid: String) {
+        FirebaseFirestore.getInstance().collection("Users")
+            .document(uid)
+            .get()
+            .addOnCompleteListener {
+                if(it.isSuccessful){
+                    if(it.result.exists()){
+                        user = it.result.toObject(UserModel::class.java)!!
+                        if(user.dpUrl!=null){
+                            postModel.userDp = user.dpUrl
+                        }
+                        else{
+                            return@addOnCompleteListener
+                        }
+                    }
+                    else{
+                        Log.i("adi", "fetchUser in post activity: result null ")
+                    }
+                }
+            }
+    }
 
-
-    //TODO Generate an user id while signing in     --- done
-    // Generate post id while posting image
 
     private fun launchHomePageActivity() {
         val i = Intent(this@PostActivity,HomePageActivity::class.java)

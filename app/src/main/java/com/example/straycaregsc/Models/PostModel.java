@@ -11,6 +11,16 @@ public class PostModel {
     String caption;
     String description;
 
+    public String getUserDp() {
+        return userDp;
+    }
+
+    public void setUserDp(String userDp) {
+        this.userDp = userDp;
+    }
+
+    String userDp;
+
     public int getLikes() {
         return likes;
     }

@@ -28,8 +28,15 @@ public class UserModel {
     String email;
     String passWord;
     String contactNo;
+    String dpUrl;
 
+    public String getDpUrl() {
+        return dpUrl;
+    }
 
+    public void setDpUrl(String dpUrl) {
+        this.dpUrl = dpUrl;
+    }
 
     public UserModel() {
     }

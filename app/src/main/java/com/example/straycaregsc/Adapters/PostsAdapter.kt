@@ -12,6 +12,7 @@ import com.example.straycaregsc.Models.PostModel
 import com.example.straycaregsc.R
 import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
+import de.hdodenhof.circleimageview.CircleImageView
 
 
 class PostsAdapter(private val postsArray:ArrayList<PostModel>, val listener:Listener):RecyclerView.Adapter<PostsAdapter.ViewHolder>() {
@@ -24,12 +25,14 @@ class PostsAdapter(private val postsArray:ArrayList<PostModel>, val listener:Lis
         var tvPostTitle:TextView
         var ivPost:ImageView
         var ivLike:ImageView
+        var ivUserImage:CircleImageView
         init {
             tvUserName = view.findViewById(R.id.tvUserName)
             ivShare = view.findViewById(R.id.ivShare)
             tvPostTitle = view.findViewById(R.id.tvPostTitle)
             ivPost = view.findViewById(R.id.ivPost)
             ivLike = view.findViewById(R.id.ivLike)
+            ivUserImage = view.findViewById(R.id.ivUserImage)
         }
     }
 
@@ -46,6 +49,13 @@ class PostsAdapter(private val postsArray:ArrayList<PostModel>, val listener:Lis
         var i =0
         holder.tvPostTitle.text = postsArray[position].caption
         holder.tvUserName.text = postsArray[position].user
+        if(!postsArray[position].userDp.isNullOrBlank()){
+
+            Picasso.get().load(postsArray[position].userDp).into(holder.ivUserImage)
+        }
+        else{
+            holder.ivUserImage.setImageResource(R.drawable.user)
+        }
         holder.ivShare.setOnClickListener{
             listener.shareClicked("${postsArray[position].caption} - by ${postsArray[position].user}")
         }
