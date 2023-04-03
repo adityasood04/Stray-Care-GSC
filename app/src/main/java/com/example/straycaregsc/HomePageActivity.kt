@@ -103,7 +103,8 @@ class HomePageActivity : AppCompatActivity() {
 
         ivProfile.setOnClickListener {
             if (userDetailsDownloaded) {
-                val i = Intent(this@HomePageActivity, ProfileActivity::class.java)
+                finish()
+                val i = Intent(this@HomePageActivity, UserProfileActivity::class.java)
                 i.putExtra("userDetails", Gson().toJson(userDetails))
                 startActivity(i)
 

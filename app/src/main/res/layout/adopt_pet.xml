@@ -19,7 +19,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
@@ -27,7 +27,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_gravity="center"
                 android:layout_marginStart="25dp"
@@ -38,17 +38,27 @@
                     android:layout_height="match_parent"
                     android:text="Aditya Sood"
                     android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center"
+                    android:textFontWeight="600"
                     android:fontFamily="@font/poppins"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
-                <TextView
-                    android:id="@+id/tvLocationAP"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Himachal Pradesh"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:textColor="#CC9A83"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:gravity="center_vertical"
+                        android:id="@+id/tvLocationAP"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Himachal Pradesh"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/poppins"
+                        android:textColor="#5C4940"
+                        android:textSize="14sp" />
+
+
             </LinearLayout>
 
             <LinearLayout
@@ -76,7 +86,7 @@
                     android:text="Contact"
                     android:layout_marginEnd="20dp"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
 
@@ -110,13 +120,10 @@
                 android:layout_marginTop="5dp"
                 android:text="A cute dog available for adoption"
                 android:textSize="16sp" />
+
+
         </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="#CC9A83"/>
+
 
 
         <LinearLayout
@@ -127,6 +134,8 @@
             android:orientation="vertical"
             android:layout_marginHorizontal= "10dp"
             >
+
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -142,11 +151,7 @@
                 android:textSize="17sp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/poppins"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginBottom="10dp"
-                android:background="#CC9A83"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -162,11 +167,7 @@
                 android:textSize="17sp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/poppins"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginBottom="10dp"
-                android:background="@color/black"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -182,11 +183,7 @@
                 android:textSize="17sp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/poppins"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginBottom="10dp"
-                android:background="@color/black"/>
+
        <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -196,19 +193,21 @@
                 android:fontFamily="@font/poppins_semibold"/>
             <TextView
                 android:id="@+id/tvLocationAPI"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="HP"
                 android:textSize="17sp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/poppins"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginBottom="10dp"
-                android:background="@color/black"/>
+
+
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_marginBottom="3dp"
+            android:background="#D9D9D9"/>
+
 
 
     </LinearLayout>
