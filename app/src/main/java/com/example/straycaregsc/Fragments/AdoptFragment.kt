@@ -1,6 +1,8 @@
 package com.example.straycaregsc.Fragments
 
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -26,6 +28,8 @@ class AdoptFragment : Fragment() {
     lateinit var tvOwnerName: TextView
     lateinit var tvOwnerEmail: TextView
     lateinit var ivBackAF: ImageView
+    lateinit var ivCall: ImageView
+    lateinit var ivEmail: ImageView
     lateinit var pbAdoptFragment: ProgressBar
     var ownerDetails = UserModel()
 
@@ -50,6 +54,8 @@ class AdoptFragment : Fragment() {
         tvOwnerName = viewOfAdopt.findViewById(R.id.tvOwnerName)
         tvOwnerMobile = viewOfAdopt.findViewById(R.id.tvOwnerMobile)
         pbAdoptFragment = viewOfAdopt.findViewById(R.id.pbAdoptFragment)
+        ivCall = viewOfAdopt.findViewById(R.id.ivCall)
+        ivEmail = viewOfAdopt.findViewById(R.id.ivEmail)
 
         ivBackAF = viewOfAdopt.findViewById(R.id.ivBackAF)
         initialiseVariables()
@@ -156,6 +162,28 @@ class AdoptFragment : Fragment() {
         tvOwnerName.text = ownerDetails.userName
         tvOwnerMobile.text = ownerDetails.contactNo
         tvOwnerEmail.text = ownerDetails.email
+
+        ivCall.setOnClickListener {
+            val u: Uri = Uri.parse("tel:" + tvOwnerMobile.text)
+
+            val i = Intent(Intent.ACTION_DIAL,u)
+            try {
+                startActivity(i)
+            }
+            catch(e:SecurityException) {
+                Log.i("adi", "exception: ${e.message} ")
+            }
+        }
+        ivEmail.setOnClickListener {
+            val intent = Intent(Intent.ACTION_SENDTO)
+            intent.data = Uri.parse("mailto:") // only email apps should handle this
+
+            intent.putExtra(Intent.EXTRA_EMAIL, ownerDetails.email)
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Want to adopt your pet.")
+
+            startActivity(intent)
+
+        }
     }
 
     private fun showRCV(){

@@ -14,6 +14,7 @@ public class AdoptArrayModel {
 
     public void setAdoptPostsArray(ArrayList<AdoptPostsModel> adoptPostsArray) {
         this.adoptPostsArray = adoptPostsArray;
+
     }
 
 }

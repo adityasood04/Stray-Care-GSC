@@ -123,6 +123,7 @@
                 android:layout_marginEnd="16dp"
                 android:fontFamily="@font/poppins"
                 android:text="Breed"
+                android:gravity="center_vertical"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />

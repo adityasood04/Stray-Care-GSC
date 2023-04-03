@@ -8,6 +8,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,6 +23,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 class HomeFragment : Fragment() {
 
     lateinit var rcvPostsHF :RecyclerView
+    lateinit var pbHF :ProgressBar
     lateinit var posts : GlobalPostsModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +41,7 @@ class HomeFragment : Fragment() {
         val viewOfLayout = inflater.inflate(R.layout.fragment_home, container, false)
         initialiseVariables()
         rcvPostsHF =viewOfLayout.findViewById(R.id.rcvPostsHF)
+        pbHF =viewOfLayout.findViewById(R.id.pbHF)
         fetchPosts()
 
 
@@ -47,6 +51,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setPostsRCV(postArray:ArrayList<PostModel>) {
+
         rcvPostsHF.layoutManager = LinearLayoutManager(parentFragment?.context)
         rcvPostsHF.adapter = PostsAdapter(postArray,object:PostsAdapter.Listener{
             override fun shareClicked(caption: String) {
@@ -59,7 +64,7 @@ class HomeFragment : Fragment() {
             override fun likeClicked(position:Int,likes:Int) {
                 fetchPosts()
                 posts.postsArray[position].likes = posts.postsArray[position].likes + likes
-                Snackbar.make(rcvPostsHF,"Liked Successfully",Snackbar.LENGTH_SHORT).show()
+                Toast.makeText(context,"Liked Successfully",Toast.LENGTH_SHORT).show()
                 updatePosts(posts)
             }
         })
@@ -74,7 +79,6 @@ class HomeFragment : Fragment() {
                 }
                 else{
                     Log.i("adi", "error ")
-
                 }
             }
 
@@ -83,11 +87,13 @@ class HomeFragment : Fragment() {
     private fun fetchPosts(){
         Log.i("adi", "post fetched is called")
 
+        showPB()
 
         FirebaseFirestore.getInstance().collection("posts").document("global posts")
             .get()
             .addOnCompleteListener{
                 if(it.isSuccessful){
+                    hidePB()
                     Log.i("adi", "post fetched is successfull")
                     if(it.result.exists()){
                         Log.i("adi", "post fetched result exists")
@@ -105,9 +111,16 @@ class HomeFragment : Fragment() {
                     }
                 }
                 else{
+                    hidePB()
                     Log.i("adi", "not able to fetch posts")
-
                 }
             }
     }
+    private fun showPB(){
+        pbHF.visibility = View.VISIBLE
+    }
+    private fun hidePB(){
+        pbHF.visibility = View.GONE
+    }
+
 }
