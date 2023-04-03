@@ -39,6 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="11"
+                android:textFontWeight="600"
                 android:fontFamily="@font/poppins"
                 android:gravity="center_vertical"
                 android:layout_marginStart="3dp"

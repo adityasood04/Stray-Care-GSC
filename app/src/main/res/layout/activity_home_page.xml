@@ -61,7 +61,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/color_brown"
+        android:elevation="6dp"
+        android:background="@drawable/top_ll_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -76,11 +77,28 @@
             android:src="@drawable/logo" />
 
 
-
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="8" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:fontFamily="@font/akaya"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:letterSpacing="0.03"
+            android:text="StrayCare"
+            android:textColor="@color/black"
+            android:textSize="24sp"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="8" />
+
 
         <ImageView
             android:id="@+id/ivProfile"

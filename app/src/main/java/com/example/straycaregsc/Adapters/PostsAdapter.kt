@@ -66,6 +66,8 @@ class PostsAdapter(private val postsArray:ArrayList<PostModel>, val listener:Lis
         }
         Picasso.get().load(postsArray[position].imageUrl).into(holder.ivPost)
 
+
+
     }
 
 //    private fun fetchPosts(position: Int) {

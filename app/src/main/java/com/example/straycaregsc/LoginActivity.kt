@@ -57,6 +57,7 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Successfully LoggedIn", Toast.LENGTH_SHORT).show()
                 val i = Intent(this@LoginActivity,HomePageActivity::class.java)
                 i.putExtra("user uid",uid)
+                finish()
                 startActivity(i)
                 hideProgressBar()
 
