@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "418568524436-sb6tsocbcks2rak1t5lbnkg3795bo5uj.apps.googleusercontent.com",
+          "client_id": "418568524436-sakhnaqs07f74hcu42i1mtcsesvbkm5h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.straycaregsc",
+            "certificate_hash": "7de034bfaeeb99f325f88229ca642d5339db55ec"
+          }
+        },
+        {
+          "client_id": "418568524436-qlq20sjgrp2l6uicpeu14hojem47gn1m.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,7 +35,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "418568524436-sb6tsocbcks2rak1t5lbnkg3795bo5uj.apps.googleusercontent.com",
+              "client_id": "418568524436-qlq20sjgrp2l6uicpeu14hojem47gn1m.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

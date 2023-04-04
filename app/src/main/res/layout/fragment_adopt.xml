@@ -39,6 +39,7 @@
                 android:layout_height="match_parent"
                 android:text="Owner's Contact"
                 android:textSize="24sp"
+                android:paddingEnd="20dp"
                 android:gravity="center"
                 android:textColor="@color/heading_color"
                 android:fontFamily="@font/poppins_bold"/>
