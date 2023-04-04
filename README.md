@@ -27,6 +27,8 @@ According to a survey conducted in 2020 by the National Institute of Animal Welf
 
 ## Our Solution
 
+![stray_care](https://user-images.githubusercontent.com/99107358/229846911-0607b479-e064-4e0e-89fc-044737b2403d.png)
+
 The application that we developed is complete in itself for every animal lover, who wishes to do their part for welfare of animals. Its features give the ability to people to help the animals that are in need of love and care. 
 
 The features and abilities of StrayCare are as follows:
