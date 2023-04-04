@@ -54,4 +54,4 @@ The features and abilities of StrayCare are as follows:
 <p align="left"> <a href="https://developer.android.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original-wordmark.svg" alt="android" width="40" height="40"/> </a> <a href="https://firebase.google.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/>  <a href="https://mapsplatform.google.com/" target="_blank" rel="noreferrer"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo07JtbAGwZaV0IbW6jpCxpfIdXjf7glS0p_MoC7YIYg&s" alt="firebase" width="40" height="40"/> </a></a>  <a href="https://kotlinlang.org" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/kotlinlang/kotlinlang-icon.svg" alt="kotlin" width="40" height="40"/></a></p>
 </p>
 
-### [Link to the demo video of StrayCare](http://example.com "Title")
+### [Link to the demo video of StrayCare](https://www.youtube.com/watch?v=VYY4WDA2HE0 "Title")
