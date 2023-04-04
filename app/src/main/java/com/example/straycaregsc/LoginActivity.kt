@@ -39,51 +39,13 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
-    lateinit var  signInRequest:BeginSignInRequest
-    private val REQ_ONE_TAP = 2  // Can be any integer unique to the Activity
-    private var showOneTapUI = true
-    private lateinit var oneTapClient: SignInClient
+//    lateinit var  signInRequest:BeginSignInRequest
+//    private val REQ_ONE_TAP = 2  // Can be any integer unique to the Activity
+//    private var showOneTapUI = true
+//    private lateinit var oneTapClient: SignInClient
 
     private fun initialiseGoogleAuth() {
 
-        val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken("438431947620-ecpi41uk3dhhf4mv8g8q993k3vs49ltm.apps.googleusercontent.com")
-            .requestEmail()
-            .build()
-
-        oneTapClient = Identity.getSignInClient(this)
-        signInRequest = BeginSignInRequest.builder()
-            .setPasswordRequestOptions(BeginSignInRequest.PasswordRequestOptions.builder()
-                .setSupported(true)
-                .build())
-            .setGoogleIdTokenRequestOptions(
-                BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
-                    .setSupported(true)
-                    // Your server's client ID, not your Android client ID.
-                    .setServerClientId(getString(R.string.web_id))
-                    // Only show accounts previously used to sign in.
-                    .setFilterByAuthorizedAccounts(true)
-                    .build())
-            // Automatically sign in when exactly one credential is retrieved.
-            .setAutoSelectEnabled(true)
-            .build()
-
-
-        oneTapClient.beginSignIn(signInRequest)
-            .addOnSuccessListener(this) { result ->
-                try {
-                    startIntentSenderForResult(
-                        result.pendingIntent.intentSender, REQ_ONE_TAP,
-                        null, 0, 0, 0, null)
-                } catch (e: IntentSender.SendIntentException) {
-                    Log.e("adi", "Couldn't start One Tap UI: ${e.localizedMessage}")
-                }
-            }
-            .addOnFailureListener(this) { e ->
-                // No saved credentials found. Launch the One Tap sign-up flow, or
-                // do nothing and continue presenting the signed-out UI.
-                Log.d("adi", e.localizedMessage)
-            }
     }
 
     private fun setListeners() {
@@ -144,68 +106,68 @@ class LoginActivity : AppCompatActivity() {
         pbLoginActivity.visibility = View.VISIBLE
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        when (requestCode) {
-            REQ_ONE_TAP -> {
-                try {
-                    val credential = oneTapClient.getSignInCredentialFromIntent(data)
-                    val idToken = credential.googleIdToken
-                    when {
-                        idToken != null -> {
-                            processResponse(credential,idToken)
-                            Log.d("adi", "Got ID token.")
-                        }
-                        else -> {
-                            // Shouldn't happen.
-                            Log.d("adi", "No ID token!")
-                        }
-                    }
-                } catch (e: ApiException) {
-                    e.printStackTrace()
-                }
-            }
-        }
-
-    }
-
-
-    private fun processResponse(googleCredential:SignInCredential, idToken:String){
-        if (idToken != null) {
-            // Got an ID token from Google. Use it to authenticate
-            // with Firebase.
-            val firebaseCredential = GoogleAuthProvider.getCredential(idToken, null)
-            FirebaseAuth.getInstance().signInWithCredential(firebaseCredential)
-                .addOnCompleteListener(this,
-                    OnCompleteListener<AuthResult?> { task ->
-                        if (task.isSuccessful) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d("adi", "signInWithCredential:success")
-                            val user: FirebaseUser =  FirebaseAuth.getInstance().currentUser!!
-                            updateUI(user)
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("adi", "signInWithCredential:failure", task.exception)
-                            updateUI(null)
-                        }
-                    })
-        }
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//
+//        when (requestCode) {
+//            REQ_ONE_TAP -> {
+//                try {
+//                    val credential = oneTapClient.getSignInCredentialFromIntent(data)
+//                    val idToken = credential.googleIdToken
+//                    when {
+//                        idToken != null -> {
+//                            processResponse(credential,idToken)
+//                            Log.d("adi", "Got ID token.")
+//                        }
+//                        else -> {
+//                            // Shouldn't happen.
+//                            Log.d("adi", "No ID token!")
+//                        }
+//                    }
+//                } catch (e: ApiException) {
+//                    e.printStackTrace()
+//                }
+//            }
+//        }
+//
+//    }
 
 
-    }
-
-    private fun updateUI(user: FirebaseUser?) {
-        if(user!=null){
-            Toast.makeText(this@LoginActivity,"Signing sucessfull",Toast.LENGTH_SHORT).show()
-            startActivity(Intent(this@LoginActivity,HomePageActivity::class.java))
-            finish()
-        }
-        else{
-            Toast.makeText(this@LoginActivity,"Failed",Toast.LENGTH_SHORT).show()
-
-        }
-    }
+//    private fun processResponse(googleCredential:SignInCredential, idToken:String){
+//        if (idToken != null) {
+//            // Got an ID token from Google. Use it to authenticate
+//            // with Firebase.
+//            val firebaseCredential = GoogleAuthProvider.getCredential(idToken, null)
+//            FirebaseAuth.getInstance().signInWithCredential(firebaseCredential)
+//                .addOnCompleteListener(this,
+//                    OnCompleteListener<AuthResult?> { task ->
+//                        if (task.isSuccessful) {
+//                            // Sign in success, update UI with the signed-in user's information
+//                            Log.d("adi", "signInWithCredential:success")
+//                            val user: FirebaseUser =  FirebaseAuth.getInstance().currentUser!!
+//                            updateUI(user)
+//                        } else {
+//                            // If sign in fails, display a message to the user.
+//                            Log.w("adi", "signInWithCredential:failure", task.exception)
+//                            updateUI(null)
+//                        }
+//                    })
+//        }
+//
+//
+//    }
+//
+//    private fun updateUI(user: FirebaseUser?) {
+//        if(user!=null){
+//            Toast.makeText(this@LoginActivity,"Signing sucessfull",Toast.LENGTH_SHORT).show()
+//            startActivity(Intent(this@LoginActivity,HomePageActivity::class.java))
+//            finish()
+//        }
+//        else{
+//            Toast.makeText(this@LoginActivity,"Failed",Toast.LENGTH_SHORT).show()
+//
+//        }
+//    }
 
 
 }
